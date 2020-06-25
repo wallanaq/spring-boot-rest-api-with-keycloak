@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:sb-kc
+    username: sa
+    password: null  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  main:
+    allow-bean-definition-overriding: true
+
+keycloak:
+  enabled: true
+  realm: integration
+  auth-server-url: http://localhost:30678/auth
+  ssl-required: none
+  resource: spring-boot-rest-api-sec-keycloak
+  public-client: true
+  principal-attribute: preferred_username
+  credentials:
+    secret: b32976f7-7479-4c31-9d87-569ff5029de1
+
+oauth2:
+  scopes: 
+    - read
+    - write
+
+api:
+  info:
+    name: spring-boot-rest-api-sec-keycloak
+
+logging:
+  level:
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.http: DEBUG
+    org.keycloak: DEBUG
+    org.apache.http: DEBUG
