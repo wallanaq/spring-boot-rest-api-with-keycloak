@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<keycloak.adapter.version>9.0.2</keycloak.adapter.version>
+		<springfox.version>2.9.2</springfox.version>
+		<spring.security.version>5.3.2.RELEASE</spring.security.version>
 	</properties>
 
 	<dependencies>
@@ -69,38 +72,38 @@
 		<dependency>
 		    <groupId>org.keycloak</groupId>
 		    <artifactId>keycloak-spring-security-adapter</artifactId>
-		    <version>9.0.2</version>
+		    <version>${keycloak.adapter.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-spring-boot-starter -->
 		<dependency>
 		    <groupId>org.keycloak</groupId>
 		    <artifactId>keycloak-spring-boot-starter</artifactId>
-		    <version>9.0.2</version>
+		    <version>${keycloak.adapter.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
 		<dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger2</artifactId>
-		    <version>2.9.2</version>
+		    <version>${springfox.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
 		<dependency>
 		    <groupId>io.springfox</groupId>
 		    <artifactId>springfox-swagger-ui</artifactId>
-		    <version>2.9.2</version>
+		    <version>${springfox.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-oauth2-client</artifactId>
-			<version>5.3.2.RELEASE</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-jose -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-oauth2-jose</artifactId>
-			<version>5.3.2.RELEASE</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -109,6 +112,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludeDevtools>true</excludeDevtools>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
