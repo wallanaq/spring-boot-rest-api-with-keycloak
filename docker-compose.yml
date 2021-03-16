@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  
+  postgres:
+    image: postgres:${POSTGRES_VERSION}
+    volumes: 
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    networks:
+      - keycloak
+
+  keycloak:
+    image: jboss/keycloak:${KEYCLOAK_VERSION}
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: ${DB}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASS}
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - ${KEYCLOAK_PORT}:8080
+    depends_on:
+      - postgres
+    networks:
+      - keycloak
+
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  keycloak:
+    driver: bridge
