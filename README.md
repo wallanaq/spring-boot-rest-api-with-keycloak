@@ -1,4 +1,4 @@
-# spring-boot-rest-api-with-keycloak
+# spring-boot-auth-keycloak
 
 Spring Boot Rest API with Keycloak
 
@@ -11,19 +11,25 @@ Spring Boot Rest API with Keycloak
 - Swagger UI (Springfox)
 - Lombok
 
+### Keycloak server
+
+```
+docker-compose up -d
+```
+
 ### Run
 
 ```
-git clone https://github.com/wallanaq/spring-boot-rest-api-with-keycloak.git
-cd spring-boot-rest-api-with-keycloak
+git clone https://github.com/wallanaq/spring-boot-auth-keycloak.git
+cd spring-boot-auth-keycloak
 mvn spring-boot:run
 ```
 
 ```
-git clone https://github.com/wallanaq/spring-boot-rest-api-with-keycloak.git
-cd spring-boot-rest-api-with-keycloak
+git clone https://github.com/wallanaq/spring-boot-auth-keycloak.git
+cd spring-boot-auth-keycloak
 mvn package
-java -jar target/spring-boot-rest-api-with-keycloak-0.0.1-SNAPSHOT.jar
+java -jar target/spring-boot-auth-keycloak-0.0.1-SNAPSHOT.jar
 ```
 
 ### Swagger UI
